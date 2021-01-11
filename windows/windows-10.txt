@@ -1,47 +1,19 @@
-# Windows 10
-
-E:\LGPO\LGPO_30\LGPO.exe /g "E:\U_STIG_GPO_Package_July_2020\DoD Windows 10 V1R22\GPOs"
-E:\LGPO\LGPO_30\LGPO.exe /g "E:\U_STIG_GPO_Package_July_2020\DoD Google Chrome V1R19\GPOs"
-E:\LGPO\LGPO_30\LGPO.exe /g "E:\U_STIG_GPO_Package_July_2020\DoD Internet Explorer 11 V1R19\GPOs"
-E:\LGPO\LGPO_30\LGPO.exe /g "E:\U_STIG_GPO_Package_July_2020\DoD Windows Defender Antivirus STIG V1R9\GPOs"
-E:\LGPO\LGPO_30\LGPO.exe /g "E:\U_STIG_GPO_Package_July_2020\DoD Windows Firewall V1R7\GPOs"
-E:\LGPO\LGPO_30\LGPO.exe /g "E:\U_STIG_GPO_Package_July_2020\DoD Adobe Acrobat Pro DC Continuous V1R2\GPOs"
-
-
 BCDEDIT /set "{current}" nx OptOut
-
 Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2Root
 
+
 New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\" -Name "SchUseStrongCrypto" -Value "1" -PropertyType "DWORD"
-
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319" -Name "SchUseStrongCrypto" -Value "1" -Type "DWORD"
-
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection" -Name "AllowTelemetry" -Value "0" -Type "DWORD"
-
-
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system\" -Name "LocalAccountTokenFilterPolicy" -Value "1" -Type "DWORD"
-
-
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" -Name "FeatureSettingsOverrideMask" -Value "3" -Type "DWORD"
-
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" -Name "FeatureSettingsOverride" -Value "8" -Type "DWORD"
-
-
 Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy" -Name "Enabled" -Value "1" -Type "DWORD"
-
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell" -Name "Transcription" -Force
-
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\Transcription" -Name "EnableTranscripting" -Value "1" -Type "DWORD"
-
 New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows\Kernel DMA Protection" -Name "DeviceEnumerationPolicy" -Force
-
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Kernel DMA Protection" -Name "DeviceEnumerationPolicy" -Value "0" -Type "DWORD"
-
 New-Item -Path "HKLM:\Software\Policies\Microsoft\WindowsInkWorkspace" -Name "AllowWindowsInkWorkspace" -Force
-
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\WindowsInkWorkspace" -Name "AllowWindowsInkWorkspace" -Value "1" -Type "DWORD"
-
 New-Item -Path "HKLM:\System\CurrentControlSet\Policies\EarlyLaunch" -Name "DriverLoadPolicy" -Force
-
-
 Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Policies\EarlyLaunch" -Name "DriverLoadPolicy" -Value "3" -Type "DWORD"
