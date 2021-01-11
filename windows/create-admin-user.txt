@@ -1,0 +1,8 @@
+# Create New local admin
+
+$Password = Read-Host -AsSecureString
+New-LocalUser "lAdmin" -Password $Password -FullName "Local Admin" -Description "Local Admin to disable default Administrator" -PasswordNeverExpires
+Add-LocalGroupMember -Group "Administrators" -Member "lAdmin"
+New-LocalUser "lUser" -Password $Password -FullName "Local User" -Description "Local User" -PasswordNeverExpires
+Add-LocalGroupMember -Group "Users" -Member "lUser"
+Disable-LocalUser -Name "X_Admin"

@@ -1,0 +1,23 @@
+# Windows 10 LGPO
+# These intructions are useful for non-domain systems 
+# Download the LGPO tool https://www.microsoft.com/en-us/download/details.aspx?id=55319
+
+# Download STIG Compilations
+# Link: https://public.cyber.mil/stigs/compilations/
+
+# Direct link to the latest at the time of this upload: https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_SRG-STIG_Library_2020_10v2.zip
+
+
+# Obviously unzip the neccessary folders.
+
+# The best method I have found in an environment that does not have a network share is to
+# place all of the files on a usb drive and use the good ole sneakernet to install on each of the systems.
+# Copy and paste the below commands in an elevated command prompt or powershell
+
+E:\LGPO\LGPO_30\LGPO.exe /g "E:\U_STIG_GPO_Package_July_2020\DoD Windows 10 V1R22\GPOs"
+E:\LGPO\LGPO_30\LGPO.exe /g "E:\U_STIG_GPO_Package_July_2020\DoD Google Chrome V1R19\GPOs"
+E:\LGPO\LGPO_30\LGPO.exe /g "E:\U_STIG_GPO_Package_July_2020\DoD Internet Explorer 11 V1R19\GPOs"
+E:\LGPO\LGPO_30\LGPO.exe /g "E:\U_STIG_GPO_Package_July_2020\DoD Windows Defender Antivirus STIG V1R9\GPOs"
+E:\LGPO\LGPO_30\LGPO.exe /g "E:\U_STIG_GPO_Package_July_2020\DoD Windows Firewall V1R7\GPOs"
+E:\LGPO\LGPO_30\LGPO.exe /g "E:\U_STIG_GPO_Package_July_2020\DoD Adobe Acrobat Pro DC Continuous V1R2\GPOs"
+

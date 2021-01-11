@@ -1,0 +1,3 @@
+# Internet Explorer 11
+
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings" -Name "PreventIgnoreCertErrors" -Value "1" -Type "DWORD"
